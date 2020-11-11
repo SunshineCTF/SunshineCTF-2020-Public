@@ -1,0 +1,22 @@
+# Ignore build products
+lilchompys
+libcageheap.so
+
+# Ignore debug info
+peda-session-*.txt
+.gdb_history
+core
+*.dot
+*.svg
+*.pdf
+
+# Reverse engineering tool files
+*.idb
+*.i64
+*.nam
+*.til
+*.id*
+*.bndb
+
+# Ignore editor config
+.vscode/

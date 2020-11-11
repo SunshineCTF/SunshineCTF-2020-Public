@@ -1,0 +1,8 @@
+version: '3.7'
+
+services:
+    web:
+      build: .
+      command: /usr/local/bin/gunicorn --bind 0.0.0.0:5000 -w 6 wsgi:app
+      ports:
+        - 5000:5000

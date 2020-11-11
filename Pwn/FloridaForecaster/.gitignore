@@ -1,0 +1,9 @@
+florida_forecaster
+florida_forecaster.debug
+*.idb
+*.i64
+*.id*
+*.nam
+*.til
+.gdb_history
+peda-session-*.txt

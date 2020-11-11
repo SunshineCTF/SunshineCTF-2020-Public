@@ -1,0 +1,15 @@
+TARGET := oomg_space2
+
+BITS := 64
+
+ASLR := 1
+NX := 1
+RELRO := 1
+CANARY := 1
+STRIP := 1
+
+DOCKER_IMAGE := oomg-space2
+DOCKER_PORTS := 20004
+DOCKER_TIMELIMIT := 30
+
+PUBLISH_BUILD := $(TARGET)

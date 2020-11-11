@@ -1,0 +1,129 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+
+char key[50] = "\x51\x75\x65\x75\x65\x20\x65\x70\x69\x63\x20\x67\x75\x69\x74\x61\x72\x20\x73\x6f\x6c\x6f\x20\x2a\x73\x79\x6e\x20\x73\x74\x61\x72\x74\x73\x20\x73\x68\x72\x65\x64\x64\x69\x6e\x67\x2a\x0a";
+
+void win(void) 
+{
+	system("/bin/sh");
+}
+
+void main(void)
+{
+
+	char input[50];
+	int x;
+
+	fgets(input, sizeof(input) - 1, stdin);
+
+	if (strlen(input) == strlen(key)) {
+		for (int i = 0; i < strlen(key); i++) {
+			x = input[i];
+			x ^= 0x30;
+			x ^= 0x31;
+			x ^= 0x32;
+			x ^= 0x33;
+			x ^= 0x34;
+			x ^= 0x35;
+			x ^= 0x36;
+			x ^= 0x37;
+			x ^= 0x38;
+			x ^= 0x39;
+			x ^= 0x3a;
+			x ^= 0x3b;
+			x ^= 0x3c;
+			x ^= 0x3d;
+			x ^= 0x3e;
+			x ^= 0x3f;
+			x ^= 0x40;
+			x ^= 0x41;
+			x ^= 0x42;
+			x ^= 0x43;
+			x ^= 0x44;
+			x ^= 0x45;
+			x ^= 0x46;
+			x ^= 0x47;
+			x ^= 0x48;
+			x ^= 0x49;
+			x ^= 0x4a;
+			x ^= 0x4b;
+			x ^= 0x4c;
+			x ^= 0x4d;
+			x ^= 0x4e;
+			x ^= 0x4f;
+			x ^= 0x50;
+			x ^= 0x51;
+			x ^= 0x52;
+			x ^= 0x53;
+			x ^= 0x54;
+			x ^= 0x55;
+			x ^= 0x56;
+			x ^= 0x57;
+			x ^= 0x58;
+			x ^= 0x59;
+			x ^= 0x5a;
+			x ^= 0x5b;
+			x ^= 0x5c;
+			x ^= 0x5d;
+			x ^= 0x5e;
+			x ^= 0x5f;
+			x ^= 0x60;
+			x ^= 0x61;
+			x ^= 0x62;
+			x ^= 0x63;
+			x ^= 0x64;
+			x ^= 0x65;
+			x ^= 0x66;
+			x ^= 0x67;
+			x ^= 0x68;
+			x ^= 0x69;
+			x ^= 0x6a;
+			x ^= 0x6b;
+			x ^= 0x6c;
+			x ^= 0x6d;
+			x ^= 0x6e;
+			x ^= 0x6f;
+			x ^= 0x70;
+			x ^= 0x71;
+			x ^= 0x72;
+			x ^= 0x73;
+			x ^= 0x74;
+			x ^= 0x75;
+			x ^= 0x76;
+			x ^= 0x77;
+			x ^= 0x78;
+			x ^= 0x79;
+			x ^= 0x7a;
+			x ^= 0x7b;
+			x ^= 0x7c;
+			x ^= 0x7d;
+			x ^= 0x7e;
+			x ^= 0x7f;
+			x ^= 0x80;
+			x ^= 0x81;
+			x ^= 0x82;
+			x ^= 0x83;
+			x ^= 0x84;
+			x ^= 0x85;
+			x ^= 0x86;
+			x ^= 0x87;
+			x ^= 0x88;
+			x ^= 0x89;
+			x ^= 0x8a;
+			x ^= 0x8b;
+			x ^= 0x8c;
+			x ^= 0x8d;
+			x ^= 0x8e;
+			x ^= 0x8f;
+			x ^= 0x90;
+			x ^= 0x91;
+			x ^= 0x92;
+			x ^= 0x93;
+			if (x != key[i]) {
+				exit(0);
+			}
+		}
+		system("/bin/sh");
+	}
+}
