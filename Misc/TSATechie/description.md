@@ -2,6 +2,6 @@ On a regular flight between NRT and MCO, Customs and Border Protection seized a 
 
 That's where you, the contractor, come in! Take a look at the report the TSA gave you to investigate. It should include everything you need to bust this prototype iPhone smuggling ring!
 
-http://chal.2020.sunshinectf.org:48343
+https://tsatechie.ctf.hackucf.org
 
 Author: Jeffrey D.

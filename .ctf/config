@@ -1,0 +1,34 @@
+# ctfcli project config. Don't commit credentials here: set CTFCLI_URL and
+# CTFCLI_ACCESS_TOKEN in the environment instead (they override [config]).
+[config]
+url =
+access_token =
+
+[challenges]
+Crypto/MagicallyDelicious =
+Forensics/familynasbackup =
+Misc/TSATechie =
+Pwn/FloridaForecaster =
+Pwn/LilChompys =
+Pwn/OOMG_SPACE =
+Pwn/OOMG_SPACE2 =
+Reversing/HotelDoorPuzzle =
+Speedrun/00 =
+Speedrun/01 =
+Speedrun/02 =
+Speedrun/03 =
+Speedrun/04 =
+Speedrun/05 =
+Speedrun/06 =
+Speedrun/07 =
+Speedrun/08 =
+Speedrun/09 =
+Speedrun/10 =
+Speedrun/11 =
+Speedrun/12 =
+Speedrun/13 =
+Speedrun/14 =
+Speedrun/15 =
+Speedrun/16 =
+Speedrun/17 =
+Web/PasswordPandemonium =

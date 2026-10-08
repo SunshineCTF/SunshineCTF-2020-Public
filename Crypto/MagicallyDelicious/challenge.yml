@@ -1,0 +1,22 @@
+version: "0.1"
+name: "Magically Delicious"
+author: meowmeow
+category: Crypto
+description: |-
+  Can you help me decipher this message?
+
+  ⭐🌈🍀 ⭐🌈🦄 ⭐🦄🌈 ⭐🎈🍀 ⭐🦄🌑 ⭐🌈🦄 ⭐🌑🍀 ⭐🦄🍀 ⭐🎈⭐ 🦄🦄 ⭐🦄🎈 ⭐🌑🍀 ⭐🌈🌑 ⭐🌑⭐ ⭐🦄🌑 🦄🦄 ⭐🌑🦄 ⭐🦄🌈 ⭐🌑🍀 ⭐🦄🎈 ⭐🌑🌑 ⭐🦄⭐ ⭐🦄🌈 ⭐🌑🎈 🦄🦄 ⭐🦄⭐ ⭐🌈🍀 🦄🦄 ⭐🌈🌑 ⭐🦄💜 ⭐🌑🦄 🦄🦄 ⭐🌑🐴 ⭐🌑🦄 ⭐🌈🍀 ⭐🌈🌑 🦄🦄 ⭐🌑🦄 ⭐🦄🌈 ⭐🌑🍀 ⭐🦄🎈 ⭐🌑🌑 ⭐🦄⭐ ⭐🦄🌈 ⭐🌑🎈 🦄🦄 ⭐🦄🦄 ⭐🌑🦄 ⭐🌈🌑 ⭐🦄💜 ⭐🦄🎈 ⭐🌑🌑 ⭐🎈🦄
+
+  Note: If you don't see a message above, make sure your browser can render emojis.
+attribution: Written by meowmeow for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 75
+flags:
+  - "sun{lucky-octal-encoding-is-the-best-encoding-method}"
+tags:
+  - "sunshinectf-2020"
+  - "beginner"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

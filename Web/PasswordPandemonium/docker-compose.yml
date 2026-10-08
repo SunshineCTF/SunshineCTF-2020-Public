@@ -1,8 +1,13 @@
-version: '3.7'
+name: sun20-passwordpandemonium
 
 services:
-    web:
-      build: .
-      command: /usr/local/bin/gunicorn --bind 0.0.0.0:5000 -w 6 wsgi:app
-      ports:
-        - 5000:5000
+  web:
+    build: .
+    command: /usr/local/bin/gunicorn --bind 0.0.0.0:5000 -w 6 wsgi:app
+    restart: unless-stopped
+    mem_limit: 512m
+    # Web challenge served via nginx on passwordpandemonium.ctf.hackucf.org
+    ports:
+      - "127.0.0.1:20301:5000"
+    cpus: 1.0
+    pids_limit: 512

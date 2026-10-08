@@ -1,4 +1,4 @@
-emoji
+emoji==0.6.0
 quickjs
 sympy
 click==7.1.2

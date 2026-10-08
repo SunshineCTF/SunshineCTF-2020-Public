@@ -2,6 +2,6 @@ You're looking to book a flight to Florida with the totally-legit new budget air
 
 ...right?
 
-http://web.2020.sunshinectf.org:47277
+https://passwordpandemonium.ctf.hackucf.org
 
 Author: Jeffrey D.

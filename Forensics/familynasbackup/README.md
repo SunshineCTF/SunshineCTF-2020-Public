@@ -1,4 +1,13 @@
-# [Forensics 400] Family Nas Backup
+# [Forensics] Family Nas Backup
 
-This challenge is essentially a real forensics task, given a clustered ceph cluster recover files from it, easy enough(no ceph is really annoying)?
-in ceph there is a file call testfile.bmp which is a video file that is one second containing the flag as a block of text in a pptx video.
+A forensics challenge: recover a lost family vacation video from a backup of a failed NAS.
+
+## Deploy
+
+No server component; players only download the attachment.
+
+## Files for players
+
+- `attachments/familynasbackup.tar.xz`
+
+See [writeup.md](writeup.md) for the solution.

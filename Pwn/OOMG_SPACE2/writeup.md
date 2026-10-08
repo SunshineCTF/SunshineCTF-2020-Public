@@ -1,4 +1,4 @@
-# [PWN TBD] OOMG SPACE!
+# [PWN] OOMG SPACE!
 
 Just a simple challenge based on a potentially surprising difference between
 syscalls and normal functions. Syscalls that access invalid pointers do not
@@ -22,3 +22,8 @@ resulting in a no-op success.
 The challenge name is a hint, as the "OOM" part of "OOMG SPACE!" means
 "out of memory", referring to how you need to try to allocate more memory than
 would succeed.
+
+## Additional notes
+
+This is a patched version of OOMG SPACE! 1 w/o the cheese solution of just trying
+until the password starts w/ a NUL byte.

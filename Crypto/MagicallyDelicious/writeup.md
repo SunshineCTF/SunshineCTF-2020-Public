@@ -1,4 +1,4 @@
-# [Crypto 100] Magically Delicious
+# [Crypto] Magically Delicious
 
 -----
 

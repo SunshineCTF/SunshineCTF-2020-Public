@@ -30,3 +30,13 @@ default.Dockerfile
 .DS_Store
 thumbs.db
 ._*
+.build/
+/publish
+.docker/
+
+# per-project build/publish symlinks created by `pwnmake check` (and PH 2.3.2)
+.build
+publish
+
+# pwntools cache (HOME is the workspace inside the pwnmake container)
+.cache/

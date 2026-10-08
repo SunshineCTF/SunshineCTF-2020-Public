@@ -1,0 +1,23 @@
+version: "0.1"
+name: "OOMG SPACE!"
+author: kcolley
+category: Pwn
+description: |-
+  The Sunshine Space Center has posted a bug bounty program! Anyone who can bypass
+  the login screen will be rewarded with an all-expenses-paid one-way trip to Mars!
+
+  * [oomg_space](/files/sun/20/Pwn/OOMG_SPACE/oomg_space)
+attribution: Written by kcolley for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 175
+connection_info: nc ctf.hackucf.org 20003
+flags:
+  - "sun{g0tt4_ch3ck_th053_r37urn_c0d35}"
+tags:
+  - "sunshinectf-2020"
+  - "intermediate"
+solution:
+  path: writeup.md
+  state: hidden
+next: "OOMG SPACE! 2"
+state: visible

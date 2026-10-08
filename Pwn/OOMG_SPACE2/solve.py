@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 from pwn import *
+import os
 
-exe = ELF("oomg_space2", checksec=False)
+exe = ELF(".build/oomg_space2" if os.path.exists(".build/oomg_space2") else "oomg_space2", checksec=False)
 context(binary=exe)
 # context.log_level = "debug"
 
 
-REMOTE = 1
-if REMOTE:
-	r = remote("chal.2020.sunshinectf.org", 20004)
+if not args.LOCAL:
+	r = remote(os.environ.get("HOST") or args.HOST or "ctf.hackucf.org", int(os.environ.get("PORT") or args.PORT or 20001))
 else:
 	r = exe.process()
 	# gdb.attach(r, "c")

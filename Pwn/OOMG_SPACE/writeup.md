@@ -1,4 +1,4 @@
-# [PWN TBD] OOMG SPACE!
+# [PWN] OOMG SPACE!
 
 Just a simple challenge based on a potentially surprising difference between
 syscalls and normal functions. Syscalls that access invalid pointers do not

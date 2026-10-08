@@ -1,0 +1,21 @@
+version: "0.1"
+name: "PasswordPandemonium"
+author: shuga__
+category: Web
+description: |-
+  You're looking to book a flight to Florida with the totally-legit new budget airline, Oceanic Airlines! All you need to do is create an account! Should be pretty easy, right?
+
+  ...right?
+attribution: Written by shuga__ for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 75
+connection_info: https://passwordpandemonium.ctf.hackucf.org
+flags:
+  - "sun{Pal1ndr0m1c_EcMaScRiPt}"
+tags:
+  - "sunshinectf-2020"
+  - "beginner"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

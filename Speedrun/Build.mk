@@ -1,6 +1,8 @@
-# Recurse into the challenge directories even though they don't contain Build.mk files
+# The challenge directories (00..17) are auto-discovered by PwnableHarness's
+# subdir recursion, but they don't contain their own Build.mk files. Instead,
+# point each one at the shared Speedrun/BuildChal.mk, which builds that challenge
+# from source with its per-challenge mitigations.
 _SPEEDRUN_CHALS := $(sort $(patsubst $(DIR)/%/flag.txt,%,$(wildcard $(DIR)/*/flag.txt)))
-$(DIR)+SUBDIRS := $(_SPEEDRUN_CHALS)
 
 #####
 # set_speedrun_buildmk($1: challenge dir name like "06")

@@ -20,3 +20,4 @@ core
 
 # Ignore editor config
 .vscode/
+lilchompys.debug

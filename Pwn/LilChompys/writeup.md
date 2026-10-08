@@ -1,4 +1,4 @@
-# [PWN 700] LilChompy's
+# [PWN] LilChompy's
 
 Custom implementation of malloc/free and a UAF/double free vulnerability.
 

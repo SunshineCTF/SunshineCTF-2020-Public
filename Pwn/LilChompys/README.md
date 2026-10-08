@@ -1,4 +1,4 @@
-# [PWN 700] LilChompy's
+# [PWN] LilChompy's
 
 ## Challenge files to publish for players
 

@@ -1,0 +1,21 @@
+version: "0.1"
+name: speedrun-13
+author: "guyinatuxedo"
+category: Pwn
+description: |-
+  Speedrun challenge #13. Download the `chall_13` binary, figure out how it works, and get the flag from the remote service. Go fast!
+
+  * [chall_13](/files/sun/20/Speedrun/13/chall_13)
+attribution: Written by guyinatuxedo for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 75
+connection_info: nc ctf.hackucf.org 20613
+flags:
+  - sun{almost-easy-61ddd735cf9053b0}
+tags:
+  - "speedrun"
+  - "mini-pwn"
+  - "sunshinectf-2020"
+  - "beginner"
+next: "speedrun-14"
+state: visible

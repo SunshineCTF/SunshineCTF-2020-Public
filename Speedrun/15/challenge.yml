@@ -1,0 +1,21 @@
+version: "0.1"
+name: speedrun-15
+author: "guyinatuxedo"
+category: Pwn
+description: |-
+  Speedrun challenge #15. Download the `chall_15` binary, figure out how it works, and get the flag from the remote service. Go fast!
+
+  * [chall_15](/files/sun/20/Speedrun/15/chall_15)
+attribution: Written by guyinatuxedo for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 100
+connection_info: nc ctf.hackucf.org 20615
+flags:
+  - sun{bat-country-53036e8a423559df}
+tags:
+  - "speedrun"
+  - "mini-pwn"
+  - "sunshinectf-2020"
+  - "beginner"
+next: "speedrun-16"
+state: visible

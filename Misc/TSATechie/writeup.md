@@ -68,3 +68,13 @@ This format can be scraped with a MITM proxy tool like Burp Suite or Charles Pro
 *It is worth noting that the device enrollment challenge only gets the UDID and model of the device and does not store this data nor is the profile persistent. It is only compared with the known UDID.*
 
 Sending a body in this format (either in plaintext or as a binary) will reveal the flag. Both the UDID and Product fields must be accurate for the flag to be shown.
+
+## Additional notes
+
+The Flask app has the following endpoints:
+
+- `GET /` The home page with a button to begin the device enrollment challenge.
+- `GET /udid/enroll` Returns the device enrollment configuration profile.
+- `POST /udid/verify` Takes in a PLIST body (string or binary) and redirects to a web page depending if the input PLIST contains the UDID/device we are looking for
+- `GET /udid/flag` Shows an error saying the device was invalid
+- `GET /udid/:FLAG` The flag. Only returned if the POST contains the expected data.

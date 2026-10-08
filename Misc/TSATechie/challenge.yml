@@ -1,0 +1,24 @@
+version: "0.1"
+name: "TSATechie"
+author: shuga__
+category: Misc
+description: |-
+  On a regular flight between NRT and MCO, Customs and Border Protection seized a suspicious iPhone from someone's luggage, along with a sticky note with a mysterious URL to some sort of device registration page. The phone doesn't boot into iOS and, upon further inspection, was stolen from the factory
+
+  That's where you, the contractor, come in! Take a look at the report the TSA gave you to investigate. It should include everything you need to bust this prototype iPhone smuggling ring!
+
+  * [InvestigationReport.pdf](/files/sun/20/Misc/TSATechie/InvestigationReport.pdf)
+  * [ScannedDocuments.pdf](/files/sun/20/Misc/TSATechie/ScannedDocuments.pdf)
+attribution: Written by shuga__ for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 150
+connection_info: https://tsatechie.ctf.hackucf.org
+flags:
+  - "sun{2de17cd306bcb1606f2ee23f05bf1504a537d}"
+tags:
+  - "sunshinectf-2020"
+  - "intermediate"
+solution:
+  path: writeup.md
+  state: hidden
+state: visible

@@ -1,0 +1,21 @@
+version: "0.1"
+name: speedrun-09
+author: "guyinatuxedo"
+category: Pwn
+description: |-
+  Speedrun challenge #09. Download the `chall_09` binary, figure out how it works, and get the flag from the remote service. Go fast!
+
+  * [chall_09](/files/sun/20/Speedrun/09/chall_09)
+attribution: Written by guyinatuxedo for [SunshineCTF 2020](https://ctftime.org/event/992)
+type: standard
+value: 50
+connection_info: nc ctf.hackucf.org 20609
+flags:
+  - sun{coming-home-4202dcd54b230a00}
+tags:
+  - "speedrun"
+  - "mini-pwn"
+  - "sunshinectf-2020"
+  - "beginner"
+next: "speedrun-10"
+state: visible

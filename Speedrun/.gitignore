@@ -1,0 +1,5 @@
+# The challenge binaries are now built from source by PwnableHarness
+# (pwnmake build[Speedrun/NN]); they are build products, not committed.
+# Ignore the compiled binaries (extensionless) but keep the .c sources.
+/*/chall_*
+!/*/chall_*.c
