@@ -12,8 +12,9 @@ this theme park!
 
 Note:
 
-The challenge sources, the built binaries (`lilchompys`, `lilchompys.debug`,
-`libcageheap.so`), and the exact libc used by the server are published as
-challenge attachments.
+`lilchompys.tar.gz` contains the challenge sources, the built binaries
+(`lilchompys`, `lilchompys.debug`, `libcageheap.so`) and the files needed to
+build and run them yourself. The exact libc used by the server is attached
+separately.
 
 Author: kcolley

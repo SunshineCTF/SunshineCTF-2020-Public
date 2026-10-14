@@ -2,13 +2,13 @@
 
 ## Challenge files to publish for players
 
-A lot of files are shared with players as part of this challenge:
+Two files are shared with players, both produced by `pwnmake publish`:
 
-* The exact `libc.so` used in the server's Docker container.
-* An exported archive of the challenge's Docker container but without the flag
-  (`docker-image-redacted.tar.gz`)
+* The exact `libc.so` used in the server's Docker container
+  (`lilchompys-libc.so`).
 * An archive (`lilchompys.tar.gz`) which contains:
-  - The challenge binary (`lilchompys`), compiled with debug symbols
+  - The challenge binary (`lilchompys`), compiled with debug symbols, and
+    `lilchompys.debug` (built with extra on-stream debug output)
   - The custom heap implementation library (`libcageheap.so`), compiled with debug
     symbols and debug functionality
   - Full source code for both of these binaries
@@ -17,21 +17,15 @@ A lot of files are shared with players as part of this challenge:
     + `BUILDING.md`
     + `Dockerfile`
 
-The PwnableHarness project is already configured to automatically build and publish
-these files when `make publish` is run from the PwnableHarness directory.
+In 2020 players also got an exported Docker image without the flag
+(`docker-image-redacted.tar.gz`); that is no longer published. The archive plus
+`BUILDING.md` is enough to build and run the challenge locally.
 
 
 ## Deployment
 
-This challenge is designed to be built and deployed using PwnableHarness. If the
-Docker containers should be run outside of PwnableHarness (such as in GCP), be aware
-of this potentially confusing aspect. There are two separate Docker images produced
-by this project, `lilchompys-redacted` and `lilchompys`.
-
-* `lilchompys-redacted` is the Docker image produced by this directory's `Build.mk`
-  file, and it is the one that's exported as `docker-image-redacted.tar.gz` to be
-  shared with players. It does not contain the real flag and should not be run on
-  the challenge servers.
-* `lilchompys` is the Docker image produced by the `deploy/Build.mk` file. This is
-  the real, private Docker image which contains the real flag and should be run as
-  the challenge server.
+This challenge is built and deployed with PwnableHarness. `Build.mk` builds the
+binaries and the allocator library and produces one Docker image,
+`sun20-lilchompys`, which contains the real flag (`flag.txt` here) and listens on
+port 20004. `pwnmake docker-start` runs it; `pwnmake check` builds it, runs
+`solve.py` against it and tears it down.

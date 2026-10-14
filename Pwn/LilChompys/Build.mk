@@ -65,12 +65,32 @@ DOCKER_BUILD_ARGS := --build-arg "LIBCAGEHEAP=$(CHOMPY_BUILD)/libcageheap.so"
 DOCKER_BUILD_DEPS := $(CHOMPY_BUILD)/libcageheap.so
 
 
-# List of files to publish for players
-PUBLISH_BUILD := lilchompys lilchompys.debug libcageheap.so
+# Files players get: one archive with the built binaries, all sources and the
+# build files (as distributed in 2020), plus the exact libc from the server.
+PUBLISH_BUILD := lilchompys.tar.gz
 PUBLISH_LIBC := lilchompys-libc.so
-PUBLISH := lilchompys.c heap.c compat.c heap_debug.c \
-	heap.h heap_internal.h compat.h heap_debug.h \
-	Build.mk Dockerfile BUILDING.md
+
+# Share all sources and the real challenge binaries, as well as the build settings
+_CHOMPY_HEADERS := compat.h heap.h heap_internal.h heap_debug.h
+_CHOMPY_ARCHIVE_BUILD := $(sort $(addprefix $(CHOMPY_BUILD)/,$(TARGETS)))
+_CHOMPY_ARCHIVE_SRC := $(sort \
+	$(addprefix $(CHOMPY_DIR)/, \
+		$(foreach target,$(TARGETS),$($(target)_SRCS)) \
+		$(_CHOMPY_HEADERS) \
+		Build.mk \
+		Dockerfile \
+		BUILDING.md \
+	) \
+)
+_CHOMPY_ARCHIVE_DIR := $(CHOMPY_BUILD)/archive
+
+# Stage everything flat in one directory, then tar it with fixed ownership and
+# sorted members so the archive only changes when its contents do.
+$(CHOMPY_BUILD)/lilchompys.tar.gz: $(_CHOMPY_ARCHIVE_BUILD) $(_CHOMPY_ARCHIVE_SRC)
+	$(_V)echo "Creating archive $@"
+	$(_v)mkdir -p $(_CHOMPY_ARCHIVE_DIR) && cp $^ $(_CHOMPY_ARCHIVE_DIR)/ && \
+		tar czf $@ --owner=0 --group=0 --numeric-owner \
+			-C $(_CHOMPY_ARCHIVE_DIR) $(sort $(notdir $^))
 
 # `pwnmake check`: the solver takes a while; allow extra headroom.
 CHECK_TIMEOUT := 240

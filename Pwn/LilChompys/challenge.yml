@@ -15,25 +15,13 @@ description: |-
 
   Note:
 
-  The challenge sources, the built binaries (`lilchompys`, `lilchompys.debug`,
-  `libcageheap.so`), and the exact libc used by the server are published as
-  challenge attachments.
+  `lilchompys.tar.gz` contains the challenge sources, the built binaries
+  (`lilchompys`, `lilchompys.debug`, `libcageheap.so`) and the files needed to
+  build and run them yourself. The exact libc used by the server is attached
+  separately.
 
-  * [lilchompys](/files/sun/20/Pwn/LilChompys/lilchompys)
-  * [lilchompys.debug](/files/sun/20/Pwn/LilChompys/lilchompys.debug)
-  * [libcageheap.so](/files/sun/20/Pwn/LilChompys/libcageheap.so)
+  * [lilchompys.tar.gz](/files/sun/20/Pwn/LilChompys/lilchompys.tar.gz)
   * [lilchompys-libc.so](/files/sun/20/Pwn/LilChompys/lilchompys-libc.so)
-  * [lilchompys.c](/files/sun/20/Pwn/LilChompys/lilchompys.c)
-  * [heap.c](/files/sun/20/Pwn/LilChompys/heap.c)
-  * [compat.c](/files/sun/20/Pwn/LilChompys/compat.c)
-  * [heap_debug.c](/files/sun/20/Pwn/LilChompys/heap_debug.c)
-  * [heap.h](/files/sun/20/Pwn/LilChompys/heap.h)
-  * [heap_internal.h](/files/sun/20/Pwn/LilChompys/heap_internal.h)
-  * [compat.h](/files/sun/20/Pwn/LilChompys/compat.h)
-  * [heap_debug.h](/files/sun/20/Pwn/LilChompys/heap_debug.h)
-  * [Build.mk](/files/sun/20/Pwn/LilChompys/Build.mk)
-  * [Dockerfile](/files/sun/20/Pwn/LilChompys/Dockerfile)
-  * [BUILDING.md](/files/sun/20/Pwn/LilChompys/BUILDING.md)
 attribution: Written by kcolley for [SunshineCTF 2020](https://ctftime.org/event/992)
 type: standard
 value: 500
