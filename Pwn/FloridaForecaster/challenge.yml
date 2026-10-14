@@ -4,11 +4,8 @@ author: crandyman
 category: Pwn
 description: |-
   Our proprietary machine learning forecaster has the most accurate and pertinent forecast information to help you plan your Florida vacation. It's in high demand, so don't spend too much time on it!
-
-  P.S. - Challenge created by crandyman from RII. Come say hi at our #research-innovations stream in the BSides Orlando Discord server!
-
   * [florida_forecaster](/files/sun/20/Pwn/FloridaForecaster/florida_forecaster)
-attribution: Written by crandyman for [SunshineCTF 2020](https://ctftime.org/event/992)
+attribution: Written by crandyman (RII) for [SunshineCTF 2020](https://ctftime.org/event/992)
 type: standard
 value: 275
 connection_info: nc ctf.hackucf.org 20002
